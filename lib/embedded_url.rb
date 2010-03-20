@@ -1,10 +1,9 @@
 require 'rubygems'
 require 'httparty'
 
-require File.join(File.dirname(__FILE__), 'embedded_url/gist')
-require File.join(File.dirname(__FILE__), 'embedded_url/slideshare')
-require File.join(File.dirname(__FILE__), 'embedded_url/youtube')
-require File.join(File.dirname(__FILE__), 'embedded_url/vimeo')
+%w[gist slideshare youtube vimeo jamendo].each do |lib|
+  require File.join(File.dirname(__FILE__), "embedded_url/#{lib}")
+end
 
 module EmbeddedURL
   def self.included(base)
@@ -24,6 +23,7 @@ module EmbeddedURL
             Youtube.new(link).to_embedded || 
             Vimeo.new(link).to_embedded || 
             SlideShare.new(link).to_embedded ||
+            Jamendo.new(link).to_embedded ||
             (link =~ /^http/ ? link : "http://#{link}")
         rescue
         end
