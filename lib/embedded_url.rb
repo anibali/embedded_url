@@ -29,7 +29,7 @@ module EmbeddedURL
     #
     # Note: if Embedded URL does not recognize the link then the original value
     # is returned (prefixed with 'http://' if necessary).
-    def with_embedded(field)
+    def with_embedded(field, options={})
       # Add instance method
       define_method("embedded_#{field}") do
         # Obtain link from the appropriate record field
@@ -40,7 +40,7 @@ module EmbeddedURL
         # Iterate through each class representing a type of embedded object and
         # attempt to embed link
         [Gist, Youtube, Vimeo, SlideShare, Jamendo].each do |clazz|
-          return_value ||= clazz.new(link).to_embedded rescue nil
+          return_value ||= clazz.new(link).to_embedded(options) rescue nil
         end
         
         # If we can't embed the link, return it as a full URL

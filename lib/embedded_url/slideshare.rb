@@ -23,7 +23,7 @@ module EmbeddedURL
       @url = url
     end
     
-    def to_embedded
+    def to_embedded(options={})
       if @url =~ /slideshare\.net/
         now = Time.now.to_i.to_s
         hashed = Digest::SHA1.hexdigest("#{@@shared_secret}#{now}")

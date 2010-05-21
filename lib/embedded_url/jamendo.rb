@@ -1,7 +1,7 @@
 module EmbeddedURL
 
-  # Enables embedding albums and tracks from Jamendo, a free and legal music
-  # site - http://www.jamendo.com/
+  # Enables embedding of albums and tracks from Jamendo, a free and legal music
+  # site - see http://www.jamendo.com/ for more details.
   class Jamendo
     attr_accessor :url
     
@@ -9,7 +9,7 @@ module EmbeddedURL
       self.url = url
     end
     
-    def to_embedded
+    def to_embedded(options={})
       if url.match /jamendo.com\/(.*)\/(.*)\/(\d*)/
         lang = $1 # Language (eg "en")
         type = $2 # Type ("track" or "album")

@@ -7,9 +7,9 @@ module EmbeddedURL
       self.url = url
     end
     
-    def to_embedded
+    def to_embedded(options={})
       if url =~ /gist\.github\.com/
-        '<script src="' + url + '.js"></script>'
+        "<script src='#{url}.js'></script>"
       end
     end
   end
