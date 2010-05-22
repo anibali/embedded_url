@@ -1,18 +1,27 @@
-= embedded_url
+= dismaldenizen's embedded_url
 
-For ActiveRecord, you can specify attribute to be embedded like the following.
+== Synopsis
+
+This is a fork of Andy Shen's embedded_url. It adds support for more sites
+and enables options for embedded media.
+
+== Usage
+
+If you are using ActiveRecord, you can specify an embeddable field using
+the `with_embedded` function:
 
     class Post < ActiveRecord::Base
       with_embedded :link
     end
 
-Then you can get the embedded URL like
+The appropriate code for embedding the link may now be retrieved with
+`embedded_#{field_name}`:
 
     @post.embedded_link
     
 If Embedded URL does not recognize the link then it will return the original value with 'http://' prefixed (if it is not already).
 
-SlideShare configuration (apply at http://slideshare.net)
+SlideShare configuration (apply for an account at http://slideshare.net)
 
     EmbeddedURL::SlideShare.configure do |config|
       config.api_key = 'api'
@@ -27,16 +36,23 @@ Usage examples
     Youtube.new('http://www.youtube.com/watch?v=bZvSD1O86M8').to_embedded
     Vimeo.new('http://vimeo.com/2927154').to_embedded
     SlideShare.new('http://www.slideshare.net/MackCollier/what-rockstars-can-teach-you-about-kicking-ass-with-social-media').to_embedded
-    
+
+== Features
+
+* Options such as height and width for applicable embedded content
+* Support for:
+  * Gist
+  * YouTube
+  * Vimeo
+  * SlideShare
+  * Jamendo
 
 == Future Plan
 
-Support these
-
-* http://ustream.tv
-* http://screenr.com
-* http://flickr.com
-* Pass option of height and width to to_embedded
+* Add support for more sites:
+  * http://ustream.tv
+  * http://screenr.com
+  * http://flickr.com
 
 == Note on Patches/Pull Requests
  
@@ -51,4 +67,6 @@ Support these
 
 == Copyright
 
-Copyright (c) 2009 Andy Shen. See LICENSE for details.
+Copyright (c) 2009 Andy Shen
+
+See LICENSE for further details
