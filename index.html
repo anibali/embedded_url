@@ -10,7 +10,7 @@
 	<style type="text/css">
 		body {
   		margin-top: 1.0em;
-  		background-color: #adf86b;
+  		background-color: #ef9;
 		  font-family: "Helvetica,Arial,FreeSans"; 
   		color: #000000;
     }
@@ -18,12 +18,11 @@
       margin: 0 auto;
       width: 700px;
     }
-		h1 { font-size: 3.8em; color: #5207e4; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #5207e4; }
-    h3 { text-align: center; color: #5207e4; }
-    a { color: #5207e4; }
+		h1 { font-size: 3.8em; color: #004; margin-bottom: 3px; }
+		h2 { font-size: 1.5em; color: #004; }
+    h3 { text-align: center; color: #004; }
+    a { color: #006; text-decoration: none }
+    a:hover { text-decoration: underline }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
 		pre { background: #000; color: #fff; padding: 15px;}
@@ -48,12 +47,23 @@
     <h1><a href="http://github.com/dismaldenizen/embedded_url">embedded_url</a></h1>
 
     <div class="description">
-      Gives you embedded html markup
+      Unobtrusive embedded HTML elements for Ruby
     </div>
 
-    <p>For a given URL, Embedded URL will attempt to detect if the address is from one of the sites that provides an embedded version of the URL.
-If so, Embedded URL will return the embedded markup for you to display in your webpage.</p><h2>Dependencies</h2>
-<p>* httparty if you require SlideShare support</p>
+    <p>
+      When provided with an address, Embedded URL will attempt to generate markup
+      for an embedded representation of the URL. This markup may be
+      inserted directly into your webpage without the hassle of dealing with
+      ugly <code>&lt;embed></code> and <code>&lt;object></code> tags.
+    </p>
+    
+    <h2>Dependencies</h2>
+    
+    <p>
+      <ul>
+        <li>httparty (for SlideShare support)</li>
+      </ul>
+    </p>
 
     <h2>Download</h2>
     <p>
