@@ -2,7 +2,7 @@ require 'test_helper'
 
 class JamendoTest < Test::Unit::TestCase
   context "An EmbeddedURL::Jamendo instance" do
-    context "with an irrelevant url" do
+    context "with an irrelevant URL" do
       setup do
         @jamendo = EmbeddedURL::Jamendo.new "http://www.example.com/"
       end
@@ -49,3 +49,4 @@ class JamendoTest < Test::Unit::TestCase
     end
   end
 end
+

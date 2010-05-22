@@ -1,4 +1,5 @@
-require "digest/sha1"
+require 'httparty'
+require 'digest/sha1'
 
 module EmbeddedURL
   

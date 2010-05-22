@@ -1,6 +1,6 @@
 module EmbeddedURL
   
-  class Youtube
+  class YouTube
     attr_accessor :url
     
     def initialize(url)
@@ -16,7 +16,6 @@ module EmbeddedURL
         }.merge options
         "<object width=\"#{options[:width]}\" height=\"#{options[:height]}\"><param name=\"movie\" value=\"http://www.youtube.com/v/#{video_id}\"></param><param name=\"allowFullScreen\" value=\"true\"></param><embed src=\"http://www.youtube.com/v/#{video_id}\" type=\"application/x-shockwave-flash\" allowfullscreen=\"true\" width=\"#{options[:width]}\" height=\"#{options[:height]}\"></embed></object>"
       end
-      
     end
   end
   

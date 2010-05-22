@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'httparty'
 require 'uri'
 
 # Iterate through libraries which add a type of embedded url and require
@@ -14,6 +12,20 @@ module EmbeddedURL
   def self.included(base)
     # Add methods of ClassMethods as class methods of `base`
     base.extend(ClassMethods)
+  end
+  
+  # Returns HTML for embedding media represented by the URL or nil if
+  # site is not recognised
+  def self.embed(url, options={})
+    html = nil
+    
+    # Iterate through each class representing a type of embedded object and
+    # attempt to embed link
+    [Gist, YouTube, Vimeo, SlideShare, Jamendo].each do |clazz|
+      html ||= clazz.new(url).to_embedded(options) rescue nil
+    end
+    
+    return html
   end
   
   # Methods in this module will be added as class methods to any object which
@@ -32,22 +44,15 @@ module EmbeddedURL
     def with_embedded(field, options={})
       # Add instance method
       define_method("embedded_#{field}") do
-        # Obtain link from the appropriate record field
-        link = send(field)
+        # Obtain url from the appropriate record field
+        url = send(field)
+        return_value = EmbeddedURL.embed(url, options)
         
-        return_value = nil
+        # If we can't embed the address, return it as a full URL
+        uri = URI.parse url
+        return_value ||= (uri.scheme.nil? ? "http://#{url}" : url)
         
-        # Iterate through each class representing a type of embedded object and
-        # attempt to embed link
-        [Gist, Youtube, Vimeo, SlideShare, Jamendo].each do |clazz|
-          return_value ||= clazz.new(link).to_embedded(options) rescue nil
-        end
-        
-        # If we can't embed the link, return it as a full URL
-        uri = URI.parse link
-        return_value ||= (uri.scheme.nil? ? "http://#{link}" : link)
-        
-        return_value
+        return return_value
       end
     end # End with_embedded
   end # End ClassMethods
