@@ -30,12 +30,8 @@ SlideShare configuration (apply for an account at http://slideshare.net)
 
 Usage examples
 
-    include EmbeddedURL
-    
-    Gist.new('http://gist.github.com/173149').to_embedded
-    Youtube.new('http://www.youtube.com/watch?v=bZvSD1O86M8').to_embedded
-    Vimeo.new('http://vimeo.com/2927154').to_embedded
-    SlideShare.new('http://www.slideshare.net/MackCollier/what-rockstars-can-teach-you-about-kicking-ass-with-social-media').to_embedded
+    EmbeddedURL.embed 'http://www.youtube.com/watch?v=xhUrRTh-b28' #=> "<object..."
+    EmbeddedURL.embed 'http://www.example.com/' #=> nil
 
 == Features
 
