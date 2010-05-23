@@ -62,6 +62,7 @@ Standalone usage examples
 
 == Copyright
 
+Copyright (c) 2010 Aiden Nibali
 Copyright (c) 2009 Andy Shen
 
 See LICENSE for further details
