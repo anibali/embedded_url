@@ -2,7 +2,7 @@ require 'uri'
 
 # Iterate through libraries which add a type of embedded url and require
 # each one from the "embedded_url" folder
-%w[gist slideshare youtube vimeo jamendo].each do |lib|
+%w[gist slideshare youtube vimeo jamendo amazon].each do |lib|
   require File.join(File.dirname(__FILE__), "embedded_url", lib)
 end
 
@@ -21,7 +21,7 @@ module EmbeddedURL
     
     # Iterate through each class representing a type of embedded object and
     # attempt to embed link
-    [Gist, YouTube, Vimeo, SlideShare, Jamendo].each do |clazz|
+    [Gist, YouTube, Vimeo, SlideShare, Jamendo, Amazon].each do |clazz|
       html ||= clazz.new(url).to_embedded(options) rescue nil
     end
     

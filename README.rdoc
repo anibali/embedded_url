@@ -42,6 +42,7 @@ Standalone usage examples
   * Vimeo
   * SlideShare
   * Jamendo
+  * Amazon MP3 clips
 
 == Future Plan
 
