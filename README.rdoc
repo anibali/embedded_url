@@ -28,7 +28,7 @@ SlideShare configuration (apply for an account at http://slideshare.net)
       config.shared_secret = 'secret'
     end
 
-Usage examples
+Standalone usage examples
 
     EmbeddedURL.embed 'http://www.youtube.com/watch?v=xhUrRTh-b28' #=> "<object..."
     EmbeddedURL.embed 'http://www.example.com/' #=> nil

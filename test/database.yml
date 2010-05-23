@@ -1,0 +1,4 @@
+embedded_url_test:
+  adapter: sqlite3
+  database: ":memory:"
+
