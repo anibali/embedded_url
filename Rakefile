@@ -12,7 +12,7 @@ begin
     gem.homepage = "http://github.com/shenie/embedded_url"
     gem.authors = ["Andy Shen"]
     gem.add_development_dependency "shoulda"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "activerecord"
     gem.add_dependency('httparty', '>= 0.4.3')
   end
 
